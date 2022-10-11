@@ -6,14 +6,24 @@
 # - continue to ask them for a valid number until they input one
 # - once a valid number is received, return that number
 
+from wsgiref import validate
+
+
+def validate_user_input():
+    num = input('Please enter a number ')
+    try:
+        return (int(num))
+    except ValueError:
+        print("you entered invalid number, please try again")
+        return validate_user_input
 # NOTE: What type of error does python throw if you try to turn a non-number string into an integer?
 # Test it out (or google it!) to see which one. Specifically catch that exception in your code.
 
 
 # 1.2 TODO: Once you are done, uncomment the two lines below to ensure that your code works as expected
 
-# user_number = validate_user_input()
-# print(f'The number the user entered is {user_number}.')
+user_number = validate_user_input()
+print(f'The number the user entered is {user_number}.')
 
 
 # 2.1 TODO: Create a function called print_tenth_item that will
@@ -21,6 +31,11 @@
 # - try to print out an f-string stating the 10th item in the list (NOTE: what index is the 10th item in the list?)
 # - if there are not ten items in the list, tell the user that it is not applicable: 'N/A'
 
+def print_tenth_item(top_ten: list):
+    try:
+        print(top_ten[9])
+    except IndexError:
+        print("N/A")
 # NOTE: What type of error does python throw if you try to index into a list past the number of items in it?
 # Test it out (or google it!) to see which one. Specifically catch that exception in your code.
 
