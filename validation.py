@@ -6,7 +6,6 @@
 # - continue to ask them for a valid number until they input one
 # - once a valid number is received, return that number
 
-from wsgiref import validate
 
 
 def validate_user_input():
